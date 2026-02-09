@@ -1,0 +1,10 @@
+<UserControl x:Class="AacV1.Views.HomeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StackPanel Margin="24" VerticalAlignment="Center">
+        <TextBlock Text="Home" FontSize="24" Margin="0,0,0,16" />
+        <Button Content="Kana Board" Command="{Binding GoKanaCommand}" Margin="0,0,0,8" />
+        <Button Content="Phrase" Command="{Binding GoPhraseCommand}" Margin="0,0,0,8" />
+        <Button Content="Supporter" Command="{Binding GoSupporterCommand}" />
+    </StackPanel>
+</UserControl>
