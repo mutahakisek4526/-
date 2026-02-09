@@ -9,6 +9,8 @@ public sealed class MainViewModel : ObservableObject
     private readonly NavigationService _navigationService;
     private readonly IInputService _inputService;
     private readonly ISpeechService _speechService;
+    private readonly IDwellService _dwellService;
+    private readonly IUndoService _undoService;
     private ObservableObject _current;
 
     public MainViewModel()
@@ -16,6 +18,8 @@ public sealed class MainViewModel : ObservableObject
         _navigationService = new NavigationService(SetCurrent, CreateViewModel);
         _inputService = new InputService();
         _speechService = new SpeechService();
+        _dwellService = new DwellService();
+        _undoService = new UndoService();
         _inputService.SelectPressed += HandleSelect;
         _inputService.BackPressed += HandleBack;
 
@@ -75,7 +79,7 @@ public sealed class MainViewModel : ObservableObject
 
         if (viewModelType == typeof(KanaBoardViewModel))
         {
-            return new KanaBoardViewModel(_navigationService, _speechService);
+            return new KanaBoardViewModel(_navigationService, _speechService, _dwellService, _undoService);
         }
 
         if (viewModelType == typeof(PhraseViewModel))
