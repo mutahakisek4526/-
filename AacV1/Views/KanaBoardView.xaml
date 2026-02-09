@@ -3,6 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <StackPanel Margin="24" VerticalAlignment="Center">
         <TextBlock Text="Kana Board" FontSize="24" Margin="0,0,0,16" />
+        <TextBox Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,12" />
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+            <Button Content="Speak" Command="{Binding SpeakCommand}" Margin="0,0,8,0" />
+            <Button Content="Stop" Command="{Binding StopCommand}" />
+        </StackPanel>
         <Button Content="Home" Command="{Binding GoHomeCommand}" />
     </StackPanel>
 </UserControl>
